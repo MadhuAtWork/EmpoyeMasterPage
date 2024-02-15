@@ -2,17 +2,12 @@ import React, { useState, useEffect } from "react";
 
 export default function Masterpage() {
     const [localdata, setLocaldata] = useState([]);
-
-
     const [formData, setFormData] = useState({
         name: '',
         employeeId: '',
         gender: '',
         city: '',
     });
-
-
-
 
     const [editformData, setEditFormData] = useState({});
     const [disabled, setDisabled] = useState()
@@ -34,7 +29,6 @@ export default function Masterpage() {
         });
 
     };
-    console.log("Form submitted:", formData);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -42,10 +36,8 @@ export default function Masterpage() {
 
         const newData = [...existingData, formData];
         localStorage.setItem('customerData', JSON.stringify(newData));
-
-        setFormData({
-
-        });
+        
+        setFormData({});
         window.location.reload();
     };
 
@@ -79,10 +71,7 @@ export default function Masterpage() {
     }
 
     const handleDelete = (employeeId) => {
-      
         const updatedData = localdata.filter((data) => data.employeeId !== employeeId);
-
-       
         setLocaldata(updatedData);
         localStorage.setItem("customerData", JSON.stringify(updatedData));
     };
