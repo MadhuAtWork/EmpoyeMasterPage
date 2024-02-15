@@ -79,10 +79,10 @@ export default function Masterpage() {
     }
 
     const handleDelete = (employeeId) => {
-        // Filter out the row with the specified employeeId from localdata
+      
         const updatedData = localdata.filter((data) => data.employeeId !== employeeId);
 
-        // Update localdata and also update localStorage
+       
         setLocaldata(updatedData);
         localStorage.setItem("customerData", JSON.stringify(updatedData));
     };
